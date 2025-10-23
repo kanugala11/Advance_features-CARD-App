@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Features Implementation</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --teal:#0f8a7e;
+      --teal-2:#0c6f63;
+      --accent:#f2f7f6;
+      --muted:#6b6b6b;
+      --paper:#fbfdfd;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #f6fbfa 0%, #ffffff 100%);
+      color:#023233;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:28px auto;
+      background:var(--paper);
+      border-radius:14px;
+      box-shadow: 0 8px 30px rgba(4,18,16,0.07);
+      overflow:hidden;
+      padding:32px;
+      position:relative;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:20px;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .title h1{
+      margin:0;
+      font-size:28px;
+      color:var(--teal-2);
+      letter-spacing:0.6px;
+    }
+    .meta{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:26px;
+      align-items:start;
+    }
+
+    .card{
+      background: linear-gradient(90deg, rgba(15,138,126,0.03), rgba(12,111,99,0.01));
+      border-radius:10px;
+      padding:20px;
+      min-height:220px;
+    }
+
+    .section-title{
+      color:var(--teal);
+      font-weight:700;
+      margin:6px 0 12px 0;
+      font-size:18px;
+    }
+
+    ul.steps{
+      list-style: none;
+      padding:0;
+      margin:0;
+    }
+    ul.steps li{
+      margin-bottom:14px;
+    }
+
+    .step-num{
+      display:inline-block;
+      width:34px;height:34px;border-radius:8px;
+      background:var(--teal);
+      color:white;font-weight:700;
+      text-align:center;line-height:34px;margin-right:10px;
+    }
+
+    .subpoints{
+      margin:8px 0 0 44px;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    .deliverables{
+      margin-top:18px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:22px;
+    }
+    .logo .brand{
+      font-weight:700;
+      color:var(--teal-2);
+      font-size:20px;
+    }
+    .logo small{display:block;color:var(--muted);font-size:12px}
+
+    /* right column artwork */
+    .right{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:center;
+    }
+
+    .poster-graphic{
+      width:100%;
+      height:100%;
+      border-radius:8px;
+      background:
+        linear-gradient(180deg, rgba(15,138,126,0.06), rgba(12,111,99,0.02));
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      min-height:360px;
+      text-align:center;
+      color:var(--teal-2);
+    }
+
+    .poster-graphic img{max-width:100%;height:auto;border-radius:6px;box-shadow:0 6px 20px rgba(2,50,50,0.06)}
+
+    /* small timeline badge */
+    .timeline{
+      position:absolute;
+      right:26px;
+      top:22px;
+      background:linear-gradient(90deg, var(--teal), var(--teal-2));
+      color:#fff;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:700;
+      font-size:13px;
+    }
+
+    /* responsive */
+    @media (max-width:980px){
+      .layout{grid-template-columns:1fr; padding-bottom:10px}
+      .right{order:-1}
+      .poster-graphic{min-height:220px}
+      .timeline{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" role="main">
+    <div class="timeline">TimeLine : 10 Days | TASK - 3</div>
+
+    <header>
+      <div class="title">
+        <h1>Advanced Features Implementation</h1>
+        <div class="meta">Objective: Enhance the application with advanced features like search and pagination, and improve the user interface.</div>
+      </div>
+
+      <div style="text-align:right">
+        <div style="font-weight:700;color:var(--teal-2)">ApexPlanet</div>
+        <small style="color:var(--muted)">Software Pvt Ltd</small>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- left content -->
+      <div>
+        <div class="card" aria-labelledby="steps-heading">
+          <h2 id="steps-heading" class="section-title">Steps</h2>
+
+          <ul class="steps">
+            <li>
+              <div style="display:flex;align-items:flex-start">
+                <span class="step-num">1</span>
+                <div>
+                  <strong>Search Functionality :</strong>
+                  <div class="subpoints">
+                    • Add a search form to allow users to search posts by title or content.<br>
+                    • Implement PHP code to perform the search query and display results.
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div style="display:flex;align-items:flex-start">
+                <span class="step-num">2</span>
+                <div>
+                  <strong>Pagination :</strong>
+                  <div class="subpoints">
+                    • Implement pagination for the posts listing page.<br>
+                    • Ensure the page displays a limited number of posts per page with navigation links to other pages.
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div style="display:flex;align-items:flex-start">
+                <span class="step-num">3</span>
+                <div>
+                  <strong>User Interface Improvements :</strong>
+                  <div class="subpoints">
+                    • Use CSS to style the application for better UX.<br>
+                    • Optionally, integrate a front-end framework like Bootstrap for responsive design.
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="deliverables">
+            <h3 class="section-title" style="font-size:16px">Deliverables:</h3>
+            <div class="subpoints" style="margin-left:0">
+              • Updated application with search and pagination.<br>
+              • Improved user interface design.
+            </div>
+          </div>
+
+          <div class="logo">
+            <div>
+              <!-- simple svg wing icon -->
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 12s5-7 12-8c0 0-3 4-3 8 0 4 3 8 3 8C8 20 3 12 3 12z" fill="#0f8a7e" />
+              </svg>
+            </div>
+            <div>
+              <div class="brand">ApexPlanet</div>
+              <small>Software Pvt Ltd</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right column -->
+      <aside class="right">
+        <div class="poster-graphic" role="img" aria-label="decorative project artwork">
+          <!-- Replace the src with your image path if you want the original poster -->
+          <img src="https://images.unsplash.com/photo-1526378721642-05fbd2f83cc8?auto=format&fit=crop&w=900&q=60" alt="web project illustration" />
+          <div style="font-weight:700">Project: Advanced Features</div>
+          <div style="color:var(--muted);font-size:13px">Search • Pagination • UI Improvements</div>
+        </div>
+      </aside>
+    </div><!-- layout -->
+  </div><!-- container -->
+
+</body>
+</html>
